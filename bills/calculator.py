@@ -1,7 +1,7 @@
 import exceptions
 
 
-def monthly_bills(amount, interest, payments):
+def monthly_bills(amount, interest, payments) -> float:
     p = interest/100
     if amount == 0:
         raise exceptions.ZeroAmount
@@ -15,3 +15,9 @@ def monthly_bills(amount, interest, payments):
         return amount/payments
     else:
         return (amount * p)/(1 - (1 + p)**(-payments))
+
+
+def total_interest(self) -> float:
+    amount_value = monthly_bills(self.amount, self.interest, self.payment)
+    total = (amount_value * self.payment) - self.amount
+    return total
