@@ -49,6 +49,8 @@ class ModelExtraAmount:
         return amortization_table
 
 
-x = ModelExtraAmount(90000, 2.40, 1)
+x = ModelExtraAmount(850000, 3.40, 24)
 
-x.amortization_extra_amount()
+f = x.amortization_extra_amount(5, 90000)
+
+print(f)
