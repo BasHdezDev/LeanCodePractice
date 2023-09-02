@@ -10,11 +10,11 @@ class NegativePayment(Exception):
     pass
 
 
-class HighestPayment(Exception):
+class HigherPayment(Exception):
     pass
 
 
-class LowestPayment(Exception):
+class LowerPayment(Exception):
     pass
 
 
