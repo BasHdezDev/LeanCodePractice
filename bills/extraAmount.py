@@ -49,13 +49,5 @@ class ModelExtraAmount:
                 if balance < payment_stock:
                     payment_stock = balance
 
-                print(row)
-
         return amortization_table
 
-
-x = ModelExtraAmount(850000, 3.40, 24)
-
-f = x.amortization_extra_amount(10, 45000)
-
-print(f)
