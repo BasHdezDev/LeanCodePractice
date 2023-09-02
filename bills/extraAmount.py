@@ -1,7 +1,7 @@
 import calculator
 
 
-class Amortization:
+class ModelExtraAmount:
     def __init__(self, amount: float, interest: float, payment: int):
         self.amount = amount
         self.interest = interest
@@ -9,7 +9,6 @@ class Amortization:
 
     def amortization_extra_amount(self, number_amount_to_pay: int, extrapayment: float) -> list:
         amount_value = calculator.monthly_bills(self.amount, self.interest, self.payment)
-        print(amount_value)
         interest_x = self.interest / 100
         balance = self.amount
         amortization_table = [["Cuota", "balance", "Pago interés", "Abono capital"],
@@ -44,13 +43,12 @@ class Amortization:
 
                 row = [amount_number, balance, interes, payment_stock]
                 amortization_table.append(row)
-                print(row)
                 if balance < payment_stock:
                     payment_stock = balance
 
         return amortization_table
 
 
-x = Amortization(200000, 3.10, 36)
+x = ModelExtraAmount(90000, 2.40, 1)
 
-x.amortization_extra_amount(10,53000)
+x.amortization_extra_amount()

@@ -1,14 +1,14 @@
-import exceptions
+import cases_tests
 
 
 def monthly_bills(amount, interest, payments) -> float:
     p = interest/100
     if amount == 0:
-        raise exceptions.ZeroAmount
+        raise cases_tests.ZeroAmount
     elif interest*12 > 100:
-        raise exceptions.Usura
+        raise cases_tests.Usura
     elif payments <= 0:
-        raise exceptions.NegativePayment
+        raise cases_tests.NegativePayment
     elif payments == 1:
         return amount
     elif interest == 0:

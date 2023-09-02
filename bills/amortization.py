@@ -1,7 +1,7 @@
 import calculator
 
 
-class Amortization:
+class ModelCalculator:
     def __init__(self, amount: float, interest: float, payment: int):
         self.amount = amount
         self.interest = interest
@@ -9,12 +9,13 @@ class Amortization:
 
     def amortization(self) -> list:
         amount_value = calculator.monthly_bills(self.amount, self.interest, self.payment)
-        print(amount_value)
         interest_x = self.interest / 100
         balance = self.amount
         amortization_table = [["Cuota", "balance", "Pago interés", "Abono capital"],
                               ["#", amount_value, self.interest, self.amount]]
         if self.payment == 1:
+            self.interest = 0
+
             amount_number = 1
             interest_ = (self.interest * balance) / 100
             payment_stock = amount_value - interest_
@@ -27,11 +28,19 @@ class Amortization:
                 payment_stock = amount_value - interes
                 balance = balance - payment_stock
 
-                if balance < 0:
+                if self.payment == 1:
+                    payment_stock = 0
+                    interes = 0
+
+                if interes >= balance:
+                    balance = payment_stock + interes
+                    payment_stock = 0
+
+                if balance <= 0:
                     balance = 0
 
                 row = [amount_number, balance, interes, payment_stock]
                 amortization_table.append(row)
-                print(row)
 
         return amortization_table
+
